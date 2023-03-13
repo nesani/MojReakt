@@ -28,25 +28,15 @@ return <section className="booklist">
 </section>
 }
 const EventExamples = () =>{
- const handleFormInput = () =>
- {
-  console.log('form input');
- }
- const handleButtonClick = () =>
- {
-  alert('buttonclick')
- }
-
   return( <section>
     <form>
       <h2>Typical form</h2>
-      <input onChange={handleFormInput} type='text' name ='example' style={{margin:'1rem 0'}}/>
+      <input onChange={(e) => console.log(e.target.value)} type='text' name ='example' style={{margin:'1rem 0'}}/>
+      <button type='submit'> Submit</button>
     </form>
-    <button onClick={handleButtonClick}> click me</button>
-  </section>
-  
+    <button type='button' onClick={()=> console.log('click me')}> click me</button>
+  </section> 
   )}
-
 
 const Book = ({book:{img, title, author}}) =>{
   return(
