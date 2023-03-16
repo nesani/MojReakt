@@ -18,26 +18,29 @@ const books = [
 
 
 const Booklist = () =>{
-  const someValue ='ShakeAndBake'
-const displayValue = () =>{
-  console.log(someValue);
+const getBook = (id) =>{
+  const book = books.find((book)=> book.id === id)
+  console.log(book)
 }
 return <section className="booklist">
 {books.map((books)=> {
   return (
-    <Book {...books} key={books.id} displayValue = {displayValue} />
+    <Book {...books} key={books.id} getBook ={getBook} />
   )
 })}
 </section>
 }
 
 const Book = (props) =>{
-const {img, title, author, displayValue} = props
+const {img, title, author, id, getBook} = props
+const getSingleBook = () =>{
+  getBook(id)
+}
   return(
   <article className="book">
      <img src={img} alt={title} />
      <h2>{title}</h2>
-     <button onClick={displayValue}>click me</button>
+     <button onClick={getSingleBook}>click me</button>
      <h4>{author}</h4>
   </article>
   );
